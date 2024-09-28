@@ -1,0 +1,58 @@
+<h2 class="text-center mt-3 mb-5">Users</h2>
+<!--<span *ngIF=" {{show}}==true; else elseBlock">Language:</span>-->
+<p class="text-danger">{{message}}</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">FirstName</th>
+          <th scope="col">Last name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Permission Read</th>
+          <th scope="col">Permission Create</th>
+          <th scope="col">Permission Update</th>
+          <th scope="col">Permission Delete</th>
+          <th scope="col">Action</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let listElement of allUsers;">
+          <td>
+            {{listElement.firstName}}
+          </td>
+          <td>
+            {{listElement.lastName}}
+          </td>
+          <td *ngIf="showUpdate; else elseBlock">
+            <a href="http://localhost:4200/edit/{{listElement.email}}" >{{listElement.email}}</a>
+          </td>
+          <ng-template #elseBlock>
+            <td>
+            {{listElement.email}}
+            </td>
+          </ng-template>
+          <td>
+            {{listElement.readP}}
+          </td>
+          <td>
+            {{listElement.createP}}
+          </td>
+          <td>
+            {{listElement.updateP}}
+          </td>
+          <td>
+            {{listElement.deleteP}}
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="deleteUser(listElement.userId)" *ngIf="showDelete">Delete User</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

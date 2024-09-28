@@ -1,0 +1,65 @@
+<h2 class="text-center mt-3 mb-3">Search vacuums</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+        <div class="row">
+          <div class="col-4">
+            <label for="">Name</label>
+            <input type="text" class="form-control" id="name" [(ngModel)] = "name">
+            <label for="">Status</label>
+            <select name="status" id="status" class="form-select" [(ngModel)] = "status">
+              <option value="on">on</option>
+              <option value="off">off</option>
+              <option value="discharging">discharging</option>
+            </select> <br>
+            <button class="btn btn-primary form-control" (click)="search()">Search</button>
+          </div>
+          <div class="col-4">
+            <label for="">Date from</label> <input type="date" value="yyyy-mm-dd" class="form-control" [(ngModel)] = "dateFrom">
+            <label>Date to</label><input type="date" value="yyyy-mm-dd" class="form-control" [(ngModel)] = "dateTo">
+          </div>
+        </div>
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Status</th>
+          <th scope="col">DateAdded</th>
+          <th scope="col">Active</th>
+          <th scope="col">Action</th>
+          <th scope="col">Schedule</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let listElement of allVacuums;">
+          <td>
+            {{listElement.name}}
+          </td>
+          <td>
+            {{listElement.status}}
+          </td>
+          <td>
+            {{listElement.dateAdded}}
+          </td>
+          <td>
+            {{listElement.active}}
+          </td>
+          <td>
+            <button *ngIf="listElement.active == true && showStart == true" type="button" class="btn btn-success" (click)="start(listElement.id)">Start</button>
+            <button *ngIf="listElement.active == true && showStop == true" type="button" class="btn btn-warning" (click)="stop(listElement.id)">Stop</button>
+            <button *ngIf="listElement.active == true && showDischarge == true" type="button" class="btn btn-info" (click)="discharge(listElement.id)">Discharge</button>
+            <button *ngIf="listElement.active == true && showDelete == true" type="button" class="btn btn-danger" (click)="delete(listElement.id)">Delete</button>
+            <br>
+          </td>
+          <td>
+            <input type="date" value="yyyy-mm-dd" class="form-control mb-2" [(ngModel)]="dateSchedule">
+            <button *ngIf="listElement.active == true && showStart == true" class="btn btn-primary" (click)="scheduleStart(listElement.id)">Start schedule</button>
+            <button *ngIf="listElement.active == true && showStop == true" class="btn btn-primary ms-2" (click)="scheduleStop(listElement.id)">Stop schedule</button>
+            <button *ngIf="listElement.active == true && showDischarge == true" class="btn btn-primary ms-2" (click)="scheduleDischarge(listElement.id)">Discharge schedule</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

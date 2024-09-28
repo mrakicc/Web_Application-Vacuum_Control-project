@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a [routerLink]="'/'" class="nav-link active" aria-current="page" >Login</a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/all'" class="nav-link" >Users</a>
+        </li>
+        <li class="nav-item" hidden id="add">
+          <a [routerLink]="'/add'" class="nav-link" >Add User</a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/searchVacuum'" class="nav-link" >Search Vacuum</a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/addVacuum'" class="nav-link" >Add Vacuum</a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/errorHistory'" class="nav-link" >Error History</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

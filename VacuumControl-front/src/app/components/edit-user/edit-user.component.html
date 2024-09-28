@@ -1,0 +1,18 @@
+<h2>Edit user page</h2><br>
+<p class="text-danger">{{message}}</p>
+<p>First name:</p>
+<input type="text" id="iName" name="nName" [(ngModel)] = "firstName"/> <br> <br>
+<p>Last name:</p>
+<input type="text" id="iLastName" name="nLastName" [(ngModel)] = "lastName"/> <br> <br>
+<p>Email:</p>
+<input type="text" id="iEmail" name="nEmail" [(ngModel)] = "email"/> <br> <br>
+<p>Permissions:</p>
+<input type="checkbox" [(ngModel)] = "readP"/>
+<label class="me-3">read</label>
+<input type="checkbox" [(ngModel)] = "createP"/>
+<label class="me-3">create</label>
+<input type="checkbox" [(ngModel)] = "updateP"/>
+<label class="me-3">update</label>
+<input type="checkbox" [(ngModel)] = "deleteP"/>
+<label>delete</label><br><br>
+<button type="button" class="btn btn-primary" (click)="editUser()">Edit User</button>

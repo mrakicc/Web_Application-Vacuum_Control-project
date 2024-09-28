@@ -1,0 +1,37 @@
+<h2 class="text-center mt-3 mb-3">Error history</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">ID message</th>
+          <th scope="col">ID vacuum</th>
+          <th scope="col">Date and time</th>
+          <th scope="col">Scheduled operation</th>
+          <th scope="col">Error message</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let listElement of errorList;">
+          <td>
+            {{listElement.idMessage}}
+          </td>
+          <td>
+            {{listElement.vacuumId}}
+          </td>
+          <td>
+            {{listElement.date| date:'yyyy-MM-dd HH:mm:ss'}}
+          </td>
+          <td>
+            {{listElement.operation}}
+          </td>
+          <td>
+            {{listElement.message}}
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
